@@ -1,4 +1,6 @@
-//En app.js, importa las funciones del módulo biblioteca.js. Usa obtenerLibros() para mostrar la colección inicial. Luego, usa agregarLibro() para añadir un nuevo libro y vuelve a mostrar la colección para verificar que se ha añadido.
+/*
+En app.js, importa y prueba estas nuevas funciones. Busca un libro por su id y muéstralo. Luego, elimina un libro y muestra la colección final.
+*/
 
 import { agregarLibro, obtenerLibros } from "./biblioteca.js";
 
