@@ -23,6 +23,7 @@ export function calcularValorTotalInventario(inventario) {
 
 }
 
+
 export default function resumenInventario(inventario) {
     const totalProductos = inventario.length;
     const categorias = [inventario.map(producto => producto.categoria)]; 
