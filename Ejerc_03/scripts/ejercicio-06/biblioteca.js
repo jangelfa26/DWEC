@@ -1,7 +1,6 @@
 /*
-Mejora el módulo biblioteca.js del ejercicio anterior. Añade las siguientes funciones:
-1. buscarLibro(id): Utiliza .find() para buscar un libro por su id y devolverlo.
-2. eliminarLibro(id): Utiliza .findIndex() para encontrar el índice del libro con ese id y luego .splice() para eliminarlo de la colección.
+Añade una nueva función al módulo biblioteca.js:
+1. ordenarPorPaginas(): Utiliza el método .sort() para ordenar los libros de la colección de menor a mayor número de páginas.
 */
 
 const libros = [
@@ -86,4 +85,16 @@ export function eliminarLibro(id) {
 
   libros.splice(posicionBorrar, 1);
 
+}
+
+export function calcularTotalPaginas() {
+  let listaPaginas= [];
+  listaPaginas = libros.map(libro => libro.paginas);
+  let totalPaginas = listaPaginas.reduce((total, numeroPaginas) => total + numeroPaginas, 0)
+  return totalPaginas;
+}
+
+export function ordenarPorPaginas() {
+  libros.sort((a,b) => a.paginas-b.paginas);
+  
 }

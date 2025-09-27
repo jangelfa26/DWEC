@@ -1,8 +1,8 @@
 /*
-En app.js, importa y prueba estas nuevas funciones. Busca un libro por su id y muéstralo. Luego, elimina un libro y muestra la colección final.
+En app.js, importa y utiliza esta función para imprimir en la consola el número total de páginas que suman todos los libros.
 */
 
-import { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro } from "./biblioteca.js";
+import { agregarLibro, obtenerLibros, buscarLibro, eliminarLibro, calcularTotalPaginas } from "./biblioteca.js";
 
 console.log(obtenerLibros()); // <== no devuelve libros
 
@@ -23,4 +23,6 @@ console.log(libroEncontrado);
 eliminarLibro(5);
 
 console.log(obtenerLibros());
+
+console.log(calcularTotalPaginas());
 

@@ -1,7 +1,7 @@
 /*
-Mejora el módulo biblioteca.js del ejercicio anterior. Añade las siguientes funciones:
-1. buscarLibro(id): Utiliza .find() para buscar un libro por su id y devolverlo.
-2. eliminarLibro(id): Utiliza .findIndex() para encontrar el índice del libro con ese id y luego .splice() para eliminarlo de la colección.
+Añade dos funciones más al módulo biblioteca.js:
+1. hayLibrosLargos(limitePaginas): Utiliza .some() para comprobar si hay al menos un libro en la colección que tenga más páginas que limitePaginas.
+2. todosSonLibrosCortos(limitePaginas): Utiliza .every() para comprobar si todos los libros de la colección tienen menos páginas que limitePaginas.
 */
 
 const libros = [
@@ -87,3 +87,27 @@ export function eliminarLibro(id) {
   libros.splice(posicionBorrar, 1);
 
 }
+
+export function calcularTotalPaginas() {
+  let listaPaginas= [];
+  listaPaginas = libros.map(libro => libro.paginas);
+  let totalPaginas = listaPaginas.reduce((total, numeroPaginas) => total + numeroPaginas, 0)
+  return totalPaginas;
+}
+
+export function ordenarPorPaginas() {
+  libros.sort((a,b) => a.paginas-b.paginas);
+  
+}
+
+export function hayLibrosLargos(limitePaginas) {
+  let hayLibrosExtensos = libros.some(libro => libro.paginas > limitePaginas);
+  return hayLibrosExtensos;
+}
+
+export function todosSonLibrosCortos(limitePaginas) {
+  let todosLibrosCortos = libros.every(libro => libro.paginas <= limitePaginas);
+  return todosLibrosCortos;
+}
+
+
