@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria imagenes</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Galeria de imagenes programada</h1>
+    </header>
+    <main>
+        <div id="imagen-principal">
+            <img src="imagenes/imagen-principal.png" alt="">
+        </div>
+        <div class="miniatura">
+            <img src="imagenes/imagen-1.jpg" alt="imagen 0" onclick="cambiarImagenPrincipal(0) "> <!-- imagen 0 -->
+            <img src="imagenes/imagen-2.jpg" alt="imagen 1" onclick="cambiarImagenPrincipal(1)"> <!-- imagen 1 -->
+            <img src="imagenes/imagen-3.jpg" alt="imagen 2" onclick="cambiarImagenPrincipal(2)"> <!-- imagen 2 -->
+            <img src="imagenes/imagen-4.jpg" alt="imagen 3" onclick="cambiarImagenPrincipal(3)"> <!-- imagen 3 -->
+        </div>
+    </main>
+    <script src="scripts/script-galeria.js"></script>
+</body>
+</html>

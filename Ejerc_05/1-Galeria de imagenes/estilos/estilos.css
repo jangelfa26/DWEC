@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    justify-items: center;
+
+}
+
+h1{
+    text-align: center;
+    margin: 50px;
+}
+
+img .activa{
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid red;
+    
+}
+
+#imagen-principal {
+    margin-bottom: 50px;
+   
+}
+
+#imagen-principal img{
+    width: 750px;
+    height: 500px;
+    
+}
+
+
