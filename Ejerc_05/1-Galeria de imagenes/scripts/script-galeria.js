@@ -18,9 +18,9 @@ function resaltarMiniatura(indice) {
         const limpiarImagenes = Array.from(imagenesMiniatura);
         
         limpiarImagenes.forEach(imagen => {
-          imagen.removeAttribute("clase");  
+          imagen.removeAttribute("class");  
         });
         let imgSelecionada = imagenesMiniatura[indice];
         console.log(imgSelecionada);
-        imgSelecionada.setAttribute("clase","activa");
+        imgSelecionada.setAttribute("class","activa");
 }

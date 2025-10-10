@@ -10,7 +10,7 @@ h1{
     margin: 50px;
 }
 
-img .activa{
+img.activa{
     display: inline-block;
     padding: 10px;
     border: 2px solid red;
