@@ -1,0 +1,8 @@
+#ventana {
+    display: none;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 10px;
+    padding-left: 20px;
+    margin-top: 15px;
+}

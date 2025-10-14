@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generador dinamico de tablas</title>
+</head>
+<body>
+    <h1>Tabla dinamica</h1>
+    <table border="1px solid black">
+        <thead>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </thead>
+    </table>
+<br><br>
+<h2>Rellena para incluir en la tabla</h2>
+    <label for="nombre">Nombre: </label>
+    <input id="nombreInput" name="nombre" type="text" required> <br>
+    <label for="apellido">Apellido: </label>
+    <input id="apellidoInput" name="apellido" type="text" required><br>
+    <button id="añadir">Añadir fila</button>
+
+<!-- coger los datos del formulario 
+ y en la tabla crear un tbody con tr 
+ y dos td en el interior -->
+
+<script src="scripts/generadorTablas.js"></script>
+
+</body>
+</html>
