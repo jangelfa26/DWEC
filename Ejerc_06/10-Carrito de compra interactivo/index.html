@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito tienda</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+     <h1>Nuestra Tienda</h1>
+
+    <div id="contenedor">
+        <div id="productos">
+            <h2>Productos Disponibles</h2>
+
+            <div class="producto" data-price="1200">
+                <h3>Portátil Pro</h3>
+                <p>Precio: 1200 €</p>
+                <button>Añadir al carrito</button>
+            </div>
+
+            <div class="producto" data-price="25">
+                <h3>Ratón Inalámbrico</h3>
+                <p>Precio: 25 €</p>
+                <button>Añadir al carrito</button>
+            </div>
+
+            <div class="producto" data-price="90">
+                <h3>Teclado Mecánico</h3>
+                <p>Precio: 90 €</p>
+                <button>Añadir al carrito</button>
+            </div>
+        </div>
+
+        <div id="carrito-contenedor">
+            <h2>Tu Carrito</h2>
+            <ul id="carrito"></ul>
+            <p>Total: <span id="total">0.00</span> €</p>
+        </div>
+    </div>
+
+    <script src="scripts/scriptCarrito.js"></script>
+</body>
+</html>

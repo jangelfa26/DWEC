@@ -2,7 +2,9 @@ const usuarios = [{nombre: 'Ana', edad: 25}, {nombre: 'Luis', edad: 30}];
 
 function crearTablaUsuarios(usuarios) {
 
-       if (!usuarios || usuarios.length === 0) return "error: usuarios esta vacio";
+       if (!usuarios || usuarios.length === 0){
+         return "error: usuarios esta vacio";
+       }
 
     let fragmento = document.createDocumentFragment();
 

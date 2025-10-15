@@ -1,0 +1,36 @@
+#colores{
+    display: flex;
+    justify-content: center;  
+    gap: 20px; 
+
+}
+
+.cuadrado {
+    padding: 50px;
+    border: 1px solid black;
+}
+
+.rojo{
+    background-color: red;
+    
+} 
+
+.verde{
+    background-color: green;
+
+} 
+
+.amarillo{
+    background-color: yellow;
+
+} 
+
+.azul{
+    background-color: blue;
+
+} 
+
+.morado{
+    background-color: purple;
+
+}

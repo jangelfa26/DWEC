@@ -1,0 +1,14 @@
+#cuadricula {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+#cuadricula div {
+  width: 10px;
+  height: 10px;
+  border: 1px solid lightgray;
+  box-sizing: border-box;
+}
