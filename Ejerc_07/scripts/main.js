@@ -27,20 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // --- Solución Ejercicio 3 ---
+    let botonVolverArriba = document.getElementById("back-to-top");
     window.addEventListener("scroll", () => {
-        let botonVolverArriba = document.querySelector(".hidden");
         let pxScroll = window.scrollY;
-        console.log(pxScroll);
-        
+
         if(pxScroll > 250){
-            botonVolverArriba.style.visibility = "visible";
-            botonVolverArriba.addEventListener("click", ()=>{
-                window.scrollTo(0,0);
-            })
+            botonVolverArriba.removeAttribute("class");
+        }else{
+            botonVolverArriba.setAttribute("class", "hidden");
         }
-
     })
-
+    botonVolverArriba.addEventListener("click", ()=>{
+        window.scrollTo(0,0);
+    })
     // --- Solución Ejercicio 5 ---
+    let botonNotificacion = document.getElementById("notification-btn");
+
 
 });
