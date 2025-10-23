@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurador de pedidos de pizza</title>
+</head>
+<body>
+    <h1>Configurador de pizzas</h1>
+    <form action="index.html" method="post">
+        <div id="tamañoPizza">
+            <label for="tamañoPequeña">Pequeña</label>
+            <input type="radio" name="tamaño" id="tamañoPequeña" value="10">
+            <label for="tamañoMediana">Mediana</label>
+            <input type="radio" name="tamaño" id="tamañoMediana" value="12">
+            <label for="tamañoGrande"></label>
+            <input type="radio" name="tamaño" id="tamañoGrande" value="15">
+        </div>
+        <div id="ingredienteExtra">
+            <p>Añadir ingrediente extra</p>
+            <label for="extraQueso">Extra queso</label>
+            <input type="checkbox" name="ingredienteExtra" id="extraQueso" value="1">
+            
+            <label for="pepperoni">Pepperoni</label>
+            <input type="checkbox" name="ingredienteExtra" id="pepperoni" value="1.5">
+            
+            <label for="champiñones">Champiñones</label>
+            <input type="checkbox" name="ingredienteExtra" id="champiñones" value="0.75">
+            
+            <label for="piña">Piña</label>
+            <input type="checkbox" name="ingredienteExtra" id="piña" value="1">
+        </div>
+        <div id="listaMasas">
+            <select name="" id="">
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </div>
+    </form>
+</body>
+</html>
