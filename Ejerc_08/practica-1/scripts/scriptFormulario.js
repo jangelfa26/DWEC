@@ -42,11 +42,10 @@ function actualizarPrecio() {
     let ingredientesExtra = document.querySelectorAll("input[name = ingredienteExtra]:checked");
     if (ingredientesExtra != null || ingredientesExtra != undefined) {
         let ArrayIngredientesExtra = Array.from(ingredientesExtra);
-        console.log(ArrayIngredientesExtra);
 
         ArrayIngredientesExtra.forEach(ingrediente => {
             let precioIngrediente = ingrediente.value;
-            console.log(precioIngrediente);
+            
             if (precioIngrediente != null || precioIngrediente != undefined) {
                 let precio = parseFloat(precioIngrediente);
                 total = total + precio;
@@ -98,10 +97,41 @@ selectTipoMasa.addEventListener("change", () => {
 // funcion para hacer el resumen del pedido
 
 function resumenPedido() {
-    
+    let resumen = "Resumen del pedido:  ";
+
+    let tamañoPizza = document.querySelector("input[name = tamaño]:checked").previousElementSibling;
+    if (tamañoPizza != null || tamañoPizza != undefined) {
+        resumen += "- tamaño de la pizza: ";
+        resumen += tamañoPizza.textContent + ", ";
+
+    }
+
+    let tipoMasa = document.getElementById("tipoMasa");
+    if (tipoMasa != null || tipoMasa != undefined) {
+        let masaSeleccionada = tipoMasa.options[tipoMasa.selectedIndex];
+        resumen += "- tipo de masa: ";
+        resumen += masaSeleccionada.textContent + ", ";
+
+    }
+    let ingredientesExtra = document.querySelectorAll("input[name = ingredienteExtra]:checked");
+    if (ingredientesExtra != null || ingredientesExtra != undefined) {
+        let ArrayIngredientesExtra = Array.from(ingredientesExtra); 
+        resumen += "- ingredientes extra: ";
+        ArrayIngredientesExtra.forEach(ingrediente => {
+           
+            resumen += ingrediente.id + ", ";
+        })
+    } else {
+        resumen += "Sin ingredientes extra <br>"
+    }
+    let precioPedido = document.querySelector("#precioPedido h2");
+    if ( precioPedido != null || precioPedido != undefined) {
+        resumen += precioPedido.textContent;
+    }
+    return resumen;
 }
 
 //listener del boton de realizar pedido, que muestre un alert con el resultado del pedido
 botonRealizarPedido.addEventListener("click", () => {
-    
+    alert(resumenPedido());
 })
