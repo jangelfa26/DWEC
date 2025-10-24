@@ -7,17 +7,20 @@
 </head>
 <body>
     <h1>Configurador de pizzas</h1>
+    <hr>
     <form action="index.html" method="post">
         <div id="tamañoPizza">
+            <h2>Tamaño de la pizza:</h2><br>
             <label for="tamañoPequeña">Pequeña</label>
-            <input type="radio" name="tamaño" id="tamañoPequeña" value="10">
+            <input type="radio" name="tamaño" id="tamañoPequeña" value="10"><br>
             <label for="tamañoMediana">Mediana</label>
-            <input type="radio" name="tamaño" id="tamañoMediana" value="12">
-            <label for="tamañoGrande"></label>
-            <input type="radio" name="tamaño" id="tamañoGrande" value="15">
+            <input type="radio" name="tamaño" id="tamañoMediana" value="12"><br>
+            <label for="tamañoGrande">Grande</label>
+            <input type="radio" name="tamaño" id="tamañoGrande" value="15"><br>
         </div>
+        <br>
         <div id="ingredienteExtra">
-            <p>Añadir ingrediente extra</p>
+            <h2>Añadir ingrediente extra</h2>
             <label for="extraQueso">Extra queso</label>
             <input type="checkbox" name="ingredienteExtra" id="extraQueso" value="1">
             
@@ -30,13 +33,25 @@
             <label for="piña">Piña</label>
             <input type="checkbox" name="ingredienteExtra" id="piña" value="1">
         </div>
+        <br>
         <div id="listaMasas">
-            <select name="" id="">
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+            <h2>tipo de masa</h2>
+            <label for="tipoMasa">tipo de masa</label>
+            <select name="tipoMasa" id="tipoMasa">
+                <option value="0">Fina</option>
+                <option value="1">Normal</option>
+                <option value="2.5">Rellena de queso</option>
             </select>
         </div>
+        <br>
+        <hr>
+        <div id="precioPedido">
+            <h2>Precio Total: 0.00 €</h2>
+        </div>
+        <button id="pedido-btn">Realizar pedido</button>
     </form>
+
+    <script src="scripts/scriptFormulario.js"></script>
+
 </body>
 </html>
