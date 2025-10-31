@@ -1,0 +1,13 @@
+div#estado{
+    border-radius: 500px;
+    padding: 10px;
+    width: 2px;
+}
+
+.online {
+    background-color: green;
+}
+
+.offline {
+    background-color: red;
+}

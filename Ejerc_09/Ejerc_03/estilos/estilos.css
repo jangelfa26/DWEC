@@ -1,0 +1,43 @@
+#barra-progreso {
+    width: 100%;
+    height: 5px;
+    background-color: red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: width 0.25s ease;
+}
+
+p {
+    margin-left: 50px;
+    margin-right: 25px;
+    font-size: 25px;
+}
+
+
+#volver-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; 
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#volver-arriba:hover {
+    background-color: blue;
+}
+
+
+#volver-arriba.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0s 0s;
+}
