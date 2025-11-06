@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 3 Validador de Acceso a Búnker</title>
+</head>
+<body>
+  <h1>Validador de Acceso</h1>
+
+  <form id="formularioAcceso">
+    <label for="codigoAgente">Código de Agente:</label>
+    <input type="text" id="codigoAgente">
+    <span id="mensajeCodigo"></span>
+    <br><br>
+
+    <label for="claveAcceso">Clave de Acceso:</label>
+    <input type="password" id="claveAcceso" disabled>
+    <span id="mensajeClave"></span>
+    <br><br>
+
+    <button id="botonAcceder" type="button" disabled>Acceder</button>
+  </form>
+
+  <script src="scripts/scriptvalidacionBunker.js"></script>
+</body>
+</html>

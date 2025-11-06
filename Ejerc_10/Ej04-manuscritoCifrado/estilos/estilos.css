@@ -1,0 +1,50 @@
+body {
+  background-color: white;
+  color: black;
+  margin: 20px;
+}
+
+header {
+  background-color: lightgray;
+  padding: 10px;
+}
+
+#juego {
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+#alfabeto {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.letra {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  border: 1px solid gray;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.letra:hover {
+  background-color: silver;
+}
+
+.letra.seleccionada {
+  background-color: green;
+  color: white;
+}
+
+.error {
+  background-color: red !important;
+}

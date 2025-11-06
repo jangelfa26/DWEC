@@ -1,0 +1,26 @@
+<agentes>
+  <agente codigo="007">
+    <nombre>James Bond</nombre>
+    <clave>skyfall</clave>
+  </agente>
+
+  <agente codigo="009">
+    <nombre>Ethan Hunt</nombre>
+    <clave>fallout</clave>
+  </agente>
+
+  <agente codigo="033">
+    <nombre>Solid Snake</nombre>
+    <clave>foxhound</clave>
+  </agente>
+
+  <agente codigo="056">
+    <nombre>Sam Fisher</nombre>
+    <clave>splinter</clave>
+  </agente>
+
+  <agente codigo="077">
+    <nombre>Alejandro Murrieta</nombre>
+    <clave>zorro</clave>
+  </agente>
+</agentes>

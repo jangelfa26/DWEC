@@ -1,0 +1,25 @@
+<inventario>
+  <item id="AGUA01" unidad="litros">
+    <nombre>Agua Potable</nombre>
+    <cantidad>500</cantidad>
+    <consumo>4</consumo>
+  </item>
+
+  <item id="COM01" unidad="kg">
+    <nombre>Comida Deshidratada</nombre>
+    <cantidad>250</cantidad>
+    <consumo>2</consumo>
+  </item>
+
+  <item id="OXI01" unidad="%">
+    <nombre>Tanques de Oxígeno</nombre>
+    <cantidad>100</cantidad>
+    <consumo>1</consumo>
+  </item>
+
+  <item id="ENE01" unidad="kWh">
+    <nombre>Energía Solar Acumulada</nombre>
+    <cantidad>1200</cantidad>
+    <consumo>10</consumo>
+  </item>
+</inventario>

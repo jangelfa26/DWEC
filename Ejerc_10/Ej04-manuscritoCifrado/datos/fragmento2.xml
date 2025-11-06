@@ -1,0 +1,7 @@
+<manuscrito>
+    <texto>El segundo secreto se encuentra donde el conocimiento se menciona con fuerza.</texto>
+    <pista>Busca en el texto principal las palabras destacadas en negrita.</pista>
+    <selector_solucion>main strong:nth-of-type(2)</selector_solucion>
+    <letra_clave>R</letra_clave>
+    <siguiente_fragmento>fragmento3.xml</siguiente_fragmento>
+</manuscrito>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 5 - Sintetizador de Materiales</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <h1>Sintetizador de Materiales</h1>
+
+  <section id="sintetizador">
+    <label for="materialBase">Material Base:</label>
+    <select id="materialBase">
+      <option value="">Selecciona uno</option>
+    </select>
+
+    <label for="materialMezcla">Material de Mezcla:</label>
+    <select id="materialMezcla">
+      <option value="">Selecciona uno</option>
+    </select>
+
+    <button id="botonSintetizar">Sintetizar</button>
+  </section>
+
+  <section id="resultado">
+    <h2>Resultado</h2>
+    <p id="mensajeResultado">Selecciona materiales y pulsa "Sintetizar".</p>
+  </section>
+
+  <section id="historial">
+    <h3>Historial de Síntesis</h3>
+    <ul id="listaHistorial"></ul>
+  </section>
+
+  <script src="scripts/scriptSintetizador.js"></script>
+</body>
+</html>
