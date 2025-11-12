@@ -1,0 +1,65 @@
+[
+  {
+    "id": "USER001",
+    "personalInfo": {
+      "firstName": "Ana",
+      "lastName": "García Pérez",
+      "email": "ana.garcia@example.com",
+      "phone": "+34 600 123 456"
+    },
+    "address": {
+      "street": "Calle Mayor 123",
+      "city": "Madrid",
+      "zipCode": "28001",
+      "country": "España"
+    },
+    "preferences": {
+      "theme": "dark",
+      "notifications": true,
+      "language": "es"
+    },
+    "hobbies": ["Lectura", "Senderismo", "Cocina"]
+  },
+  {
+    "id": "USER002",
+    "personalInfo": {
+      "firstName": "Carlos",
+      "lastName": "López Fernández",
+      "email": "carlos.lopez@example.com",
+      "phone": "+34 622 555 888"
+    },
+    "address": {
+      "street": "Avenida de América 22",
+      "city": "Barcelona",
+      "zipCode": "08002",
+      "country": "España"
+    },
+    "preferences": {
+      "theme": "light",
+      "notifications": false,
+      "language": "es"
+    },
+    "hobbies": ["Fútbol", "Videojuegos", "Viajar"]
+  },
+  {
+    "id": "USER003",
+    "personalInfo": {
+      "firstName": "Lucía",
+      "lastName": "Martín Díaz",
+      "email": "lucia.martin@example.com",
+      "phone": "+34 644 321 654"
+    },
+    "address": {
+      "street": "Calle Sol 45",
+      "city": "Sevilla",
+      "zipCode": "41004",
+      "country": "España"
+    },
+    "preferences": {
+      "theme": "dark",
+      "notifications": true,
+      "language": "es"
+    },
+    "hobbies": ["Pintura", "Música", "Yoga"]
+  }
+]

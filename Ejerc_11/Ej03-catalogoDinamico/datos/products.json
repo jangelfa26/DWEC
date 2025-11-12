@@ -1,0 +1,112 @@
+[
+  {
+    "id": "PROD001",
+    "name": "Smartphone X",
+    "description": "Potente smartphone con cámara de 108MP y batería de larga duración.",
+    "price": 699.99,
+    "category": "Electrónica",
+    "brand": "TechCorp",
+    "rating": 4.5,
+    "stock": 50,
+    "imageUrl": "https://picsum.photos/seed/PROD001/400/300"
+  },
+  {
+    "id": "PROD002",
+    "name": "Laptop UltraBook",
+    "description": "Diseño ligero y alto rendimiento para profesionales.",
+    "price": 1299.99,
+    "category": "Electrónica",
+    "brand": "InnovatePC",
+    "rating": 4.8,
+    "stock": 25,
+    "imageUrl": "https://picsum.photos/seed/PROD002/400/300"
+  },
+  {
+    "id": "PROD003",
+    "name": "Cafetera Espresso",
+    "description": "Prepara tu café favorito en minutos con calidad profesional.",
+    "price": 129.00,
+    "category": "Hogar",
+    "brand": "HomeEssentials",
+    "rating": 4.2,
+    "stock": 100,
+    "imageUrl": "https://picsum.photos/seed/PROD003/400/300"
+  },
+  {
+    "id": "PROD004",
+    "name": "Aspiradora Cyclone",
+    "description": "Aspira y limpia con la máxima potencia y eficiencia.",
+    "price": 179.99,
+    "category": "Hogar",
+    "brand": "CleanHouse",
+    "rating": 4.0,
+    "stock": 75,
+    "imageUrl": "https://picsum.photos/seed/PROD004/400/300"
+  },
+  {
+    "id": "PROD005",
+    "name": "Auriculares SoundBeat",
+    "description": "Sonido envolvente y cancelación de ruido avanzada.",
+    "price": 89.99,
+    "category": "Electrónica",
+    "brand": "AudioMax",
+    "rating": 4.3,
+    "stock": 200,
+    "imageUrl": "https://picsum.photos/seed/PROD005/400/300"
+  },
+  {
+    "id": "PROD006",
+    "name": "Reloj SmartFit",
+    "description": "Monitor de actividad, notificaciones y autonomía para varios días.",
+    "price": 149.50,
+    "category": "Accesorios",
+    "brand": "WearPlus",
+    "rating": 4.1,
+    "stock": 120,
+    "imageUrl": "https://picsum.photos/seed/PROD006/400/300"
+  },
+  {
+    "id": "PROD007",
+    "name": "Zapatillas RunFast",
+    "description": "Cómodas y ligeras para entrenamiento diario y competiciones.",
+    "price": 79.99,
+    "category": "Deporte",
+    "brand": "Sportiva",
+    "rating": 4.4,
+    "stock": 90,
+    "imageUrl": "https://picsum.photos/seed/PROD007/400/300"
+  },
+  {
+    "id": "PROD008",
+    "name": "Libro: Aprende JS",
+    "description": "Guía práctica para aprender JavaScript desde cero.",
+    "price": 24.90,
+    "category": "Libros",
+    "brand": "EditorialDev",
+    "rating": 4.7,
+    "stock": 300,
+    "imageUrl": "https://picsum.photos/seed/PROD008/400/300"
+  },
+  {
+    "id": "PROD009",
+    "name": "Mochila Urban",
+    "description": "Mochila resistente con compartimento para portátil 15\".",
+    "price": 59.99,
+    "category": "Accesorios",
+    "brand": "CarryWell",
+    "rating": 4.0,
+    "stock": 140,
+    "imageUrl": "https://picsum.photos/seed/PROD009/400/300"
+  },
+  {
+    "id": "PROD010",
+    "name": "Batidora ProMix",
+    "description": "Batidor profesional para smoothies y recetas rápidas.",
+    "price": 49.95,
+    "category": "Hogar",
+    "brand": "KitchenPro",
+    "rating": 4.2,
+    "stock": 65,
+    "imageUrl": "https://picsum.photos/seed/PROD010/400/300"
+  }
+]

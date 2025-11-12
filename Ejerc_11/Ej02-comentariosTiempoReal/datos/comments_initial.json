@@ -1,0 +1,17 @@
+[
+  {
+    "author": "Lucía Fernández",
+    "commentText": "¡Me encanta este sistema de comentarios!",
+    "timestamp": "2025-11-12T09:00:00Z"
+  },
+  {
+    "author": "Carlos Gómez",
+    "commentText": "Es una buena práctica para entender XMLHttpRequest.",
+    "timestamp": "2025-11-12T10:15:00Z"
+  },
+  {
+    "author": "María López",
+    "commentText": "Funciona genial, incluso sin backend real.",
+    "timestamp": "2025-11-12T11:30:00Z"
+  }
+]
