@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "nombre": "Carlos Santana",
+    "email": "carlos.santana@example.com",
+    "fechaRegistro": "2023-01-15",
+    "telefono": "612345678",
+    "direccion": "Calle Mayor 12, Madrid"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana López",
+    "email": "ana.lopez@example.com",
+    "fechaRegistro": "2023-02-20",
+    "telefono": "623456789",
+    "direccion": "Av. Libertad 45, Valencia"
+  },
+  {
+    "id": 3,
+    "nombre": "Pedro Martínez",
+    "email": "pedro.martinez@example.com",
+    "fechaRegistro": "2023-03-10",
+    "telefono": "634567890",
+    "direccion": "Calle Nueva 8, Sevilla"
+  },
+  {
+    "id": 4,
+    "nombre": "Laura Fernández",
+    "email": "laura.fernandez@example.com",
+    "fechaRegistro": "2023-04-05",
+    "telefono": "645678901",
+    "direccion": "Paseo del Prado 30, Madrid"
+  }
+]

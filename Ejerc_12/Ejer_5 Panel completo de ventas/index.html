@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Ventas</title>
+</head>
+<body>
+
+    <h1>Panel de Ventas</h1>
+
+    <div id="estado-carga" class="cargando">
+        Cargando datos maestros…
+    </div>
+
+    <div id="panel" class="oculto">
+
+        <label for="selectUsuarios">Seleccionar Usuario:</label>
+        <select id="selectUsuarios">
+            <option value="">Seleccionar</option>
+        </select>
+
+        <section id="panelUsuario"></section>
+        <section id="panelPedidos"></section>
+        <section id="panelResumen"></section>
+
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
