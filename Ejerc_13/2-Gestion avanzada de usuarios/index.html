@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Avanzada de Usuarios</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión Avanzada de Usuarios</h1>
+        <div class="barra-superior"></div>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="tarjeta formulario-tarjeta">
+            <h2>Añadir / Editar Usuario</h2>
+            <form id="formulario-usuario">
+                <label>Nombre:</label>
+                <input type="text" id="nombre" required>
+                <div class="error" id="error-nombre"></div>
+
+                <label>Apellido:</label>
+                <input type="text" id="apellido" required>
+                <div class="error" id="error-apellido"></div>
+
+                <label>Email:</label>
+                <input type="email" id="correo" required>
+                <div class="error" id="error-correo"></div>
+
+                <label>URL de la Imagen:</label>
+                <input type="text" id="foto" required>
+                <div class="error" id="error-foto"></div>
+
+                <button type="submit" id="boton-guardar">Guardar Usuario</button>
+            </form>
+        </section>
+
+        <section class="tarjeta lista-tarjeta">
+            <h2>Lista de Usuarios</h2>
+            <input type="text" id="buscador" placeholder="Buscar usuario...">
+            <button id="boton-cargar-usuarios" class="boton-verde">Cargar Usuarios Iniciales</button>
+
+            <div id="mensaje"></div>
+            <ul id="lista-usuarios"></ul>
+        </section>
+        
+    </main>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>

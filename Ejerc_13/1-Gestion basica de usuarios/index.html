@@ -3,33 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de usuarios</title>
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="estilos/styles.css">
 </head>
 <body>
-    <header><h1>Gestión de Usuarios</h1></header>
-    <main>
-        <div id="formularioUsuario">
+    <header>
+        <h1>Gestión de Usuarios</h1>
+        <div class="barra-superior"></div>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="tarjeta formulario-tarjeta">
             <h2>Añadir / Editar Usuario</h2>
-            <form action="">
-                <label for="inputNombre">Nombre:</label>
-                <input type="text" id="inputNombre" name="inputNombre">
-                
-                <label for="inputApellido">Apellido:</label>
-                <input type="text" id="inputApellido" name="inputApellido">
+            <form id="formulario-usuario">
+                <label>Nombre:</label>
+                <input type="text" id="nombre" required>
 
-                <label for="inputEmail">Email:</label>
-                <input type="text" id="inputEmail" name="inputEmail">
+                <label>Apellido:</label>
+                <input type="text" id="apellido" required>
 
-                <label for="inputUrlImagen">URL de la imagen:</label>
-                <input type="text" id="inputUrlImagen" name="inputUrlImagen">
+                <label>Email:</label>
+                <input type="email" id="correo" required>
 
-                <button>Guardar Usuario</button>
+                <label>URL de la Imagen:</label>
+                <input type="text" id="foto" required>
 
+                <button type="submit" id="boton-guardar">Guardar Usuario</button>
             </form>
-        </div>
-        <div id="listaUsuarios">
-            <button>Cargar Usuarios Iniciales</button>
-        </div>
+        </section>
+
+        <section class="tarjeta lista-tarjeta">
+            <h2>Lista de Usuarios</h2>
+            <button id="boton-cargar-usuarios" class="boton-verde">Cargar Usuarios Iniciales</button>
+
+            <div id="mensaje"></div>
+
+            <ul id="lista-usuarios"></ul>
+        </section>
     </main>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>

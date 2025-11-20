@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Avanzada de Usuarios</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Gestión Avanzada de Usuarios</h1>
+        <div class="barra-superior"></div>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="tarjeta formulario-tarjeta">
+            <h2>Añadir / Editar Usuario</h2>
+            <form id="formulario-usuario">
+                <label>Nombre:</label>
+                <input type="text" id="nombre" required>
+                <div class="error" id="error-nombre"></div>
+
+                <label>Apellido:</label>
+                <input type="text" id="apellido" required>
+                <div class="error" id="error-apellido"></div>
+
+                <label>Email:</label>
+                <input type="email" id="correo" required>
+                <div class="error" id="error-correo"></div>
+
+                <label>URL de la Imagen:</label>
+                <input type="text" id="foto" required>
+                <div class="error" id="error-foto"></div>
+
+                <button type="submit" id="boton-guardar">Guardar Usuario</button>
+            </form>
+        </section>
+
+        <section class="tarjeta lista-tarjeta">
+            <h2>Lista de Usuarios</h2>
+            <input type="text" id="buscador" placeholder="Buscar usuario...">
+            <button id="boton-cargar-usuarios" class="boton-verde">Cargar Usuarios Iniciales</button>
+
+            <div id="mensaje"></div>
+            <ul id="lista-usuarios"></ul>
+        </section>
+
+    </main>
+
+    <div id="modal-calificaciones"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+        <div style="background:white; padding:20px; border-radius:10px; width:300px; position:relative;">
+            <h3 id="nombre-usuario-calificaciones">Usuario</h3>
+            <form id="formulario-calificaciones">
+                <label>Matemáticas:</label>
+                <input type="number" min="0" max="10" name="matematicas" required>
+                <label>Historia:</label>
+                <input type="number" min="0" max="10" name="historia" required>
+                <label>Ciencia:</label>
+                <input type="number" min="0" max="10" name="ciencia" required>
+                <label>Inglés:</label>
+                <input type="number" min="0" max="10" name="ingles" required>
+                <label>Arte:</label>
+                <input type="number" min="0" max="10" name="arte" required>
+                <button type="submit">Guardar Calificaciones</button>
+                <button type="button" id="borrar-calificaciones">Borrar Calificaciones</button>
+                <button type="button" id="cerrar-modal" style="position:absolute; top:5px; right:10px;">X</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
