@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>formulario crear producto</title>
+</head>
+<body>
+
+    <h1>Crear Nuevo Producto</h1>
+
+    <form id="formProducto">
+        <div class="campo">
+            <label>Nombre del producto:</label>
+            <input type="text" id="nombre">
+            <small class="error" id="errorNombre"></small>
+        </div>
+
+        <div class="campo">
+            <label>SKU:</label>
+            <input type="text" id="sku">
+            <small id="estadoSku" class="estado"></small>
+            <small class="error" id="errorSku"></small>
+        </div>
+
+        <div class="campo">
+            <label>Precio (€):</label>
+            <input type="number" id="precio" step="0.01">
+            <small class="error" id="errorPrecio"></small>
+        </div>
+
+        <div class="campo">
+            <label>Stock:</label>
+            <input type="number" id="stock">
+            <small class="error" id="errorStock"></small>
+        </div>
+
+        <div class="campo">
+            <label>Categoría:</label>
+            <input type="text" id="categoria">
+            <small class="error" id="errorCategoria"></small>
+        </div>
+
+        <button id="btnGuardar" disabled>Guardar</button>
+    </form>
+
+    <p id="mensajeExito" class="exito"></p>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
