@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesador de Imágenes por Lotes</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Procesador de Imágenes por Lotes</h1>
+        
+        <!-- Área de carga de imágenes -->
+        <div class="upload-area" id="upload-area">
+            <p>Arrastra y suelta tus imágenes aquí</p>
+            <input type="file" id="file-input" multiple accept="image/*" />
+        </div>
+
+        <!-- Vista previa de imágenes cargadas -->
+        <div id="preview-container" class="preview-container"></div>
+
+        <!-- Opciones de edición -->
+        <div class="edit-options">
+            <label for="watermark-text">Texto de la Marca de Agua:</label>
+            <input type="text" id="watermark-text" placeholder="© Mi App" />
+
+            <label for="max-width">Ancho máximo:</label>
+            <input type="number" id="max-width" placeholder="800" />
+
+            <label for="output-format">Formato de salida:</label>
+            <select id="output-format">
+                <option value="image/jpeg">JPEG</option>
+                <option value="image/png">PNG</option>
+            </select>
+
+            <button id="process-button">Procesar Imágenes</button>
+        </div>
+
+        <!-- Contenedor de enlaces para descargar imágenes procesadas -->
+        <div id="download-links"></div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.8.0/jszip.min.js"></script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Kanban Interactivo</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+<body>
+    <h1>Tablero Kanban Interactivo</h1>
+
+    <div id="kanban-board">
+        <div class="kanban-column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Tareas por hacer</h2>
+            <div id="task-1" class="task" draggable="true" ondragstart="drag(event)" ondrop="handleFileDrop(event)">
+                <p>Tarea 1</p>
+                <div class="file-info"></div>
+            </div>
+            <div id="task-2" class="task" draggable="true" ondragstart="drag(event)" ondrop="handleFileDrop(event)">
+                <p>Tarea 2</p>
+                <div class="file-info"></div>
+            </div>
+        </div>
+
+        <div class="kanban-column" id="in-progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>En progreso</h2>
+        </div>
+
+        <div class="kanban-column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Finalizado</h2>
+        </div>
+    </div>
+
+    <!-- Área para soltar archivos -->
+    <div id="file-drop-area" ondrop="handleFileDrop(event)" ondragover="handleDragOver(event)">
+        <p>Arrastra y suelta un archivo sobre una tarea</p>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Rutas Geográficas</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Planificador de Rutas Geográficas</h1>
+
+        <div>
+            <label for="lat">Latitud:</label>
+            <input type="number" id="lat" placeholder="Ej. 40.4168" step="any">
+
+            <label for="lon">Longitud:</label>
+            <input type="number" id="lon" placeholder="Ej. -3.7038" step="any">
+
+            <button id="addPointBtn">Añadir Punto</button>
+        </div>
+
+        <div class="route-points">
+            <h3>Puntos de la Ruta:</h3>
+            <ul id="pointsList">
+            </ul>
+        </div>
+
+        <h3>Distancia Total: <span id="totalDistance">0 km</span></h3>
+
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
