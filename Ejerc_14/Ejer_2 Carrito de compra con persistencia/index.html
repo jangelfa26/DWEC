@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda de Usuario y Pedidos</title>
+    <title>Visualizador de productos</title>
+    <link rel="stylesheet" href="styles/estilos.css">
 </head>
 <body>
+    <h1>Visualizador de Productos</h1>
+    <p id="mensaje-carga">Cargando...</p>
 
-    <h1>Búsqueda de Usuario y sus Pedidos</h1>
+    <div id="contenedor-filtros">
+        <label for="filtro-categorias">Filtrar por categoría:</label>
+        <select id="filtro-categorias">
+            <option value="Todas">Todas</option>
+        </select>
 
-    <form id="formulario-busqueda">
-        <label for="campo-email">Introduce el email:</label>
-        <input type="text" id="campo-email" placeholder="usuario@example.com">
-        <button type="submit">Buscar</button>
-    </form>
+        <button id="boton-ordenar-menor">Ordenar de Menor a Mayor Precio</button>
+        <button id="boton-ordenar-mayor">Ordenar de Mayor a Menor Precio</button>
+    </div>
 
-    <p id="mensaje-estado"></p>
+    <div id="contenedor-productos"></div>
 
-    <div id="contenedor-resultados"></div>
+    <div id="carrito">
+        <h2>Carrito de la Compra</h2>
+        <div id="contenedor-carrito"></div>
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+    </div>
+
+    <div>
+        <button id="tema-claro">Tema Claro</button>
+        <button id="tema-oscuro">Tema Oscuro</button>
+    </div>
 
     <script src="scripts/app.js"></script>
 </body>

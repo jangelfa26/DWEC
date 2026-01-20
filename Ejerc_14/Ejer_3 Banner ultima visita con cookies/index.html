@@ -2,48 +2,42 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>formulario crear producto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Productos</title>
+    <link rel="stylesheet" href="styles/estilos.css">
 </head>
 <body>
 
-    <h1>Crear Nuevo Producto</h1>
+    <div id="banner-ultima-visita" style="display: none;">
+        <p id="mensaje-ultima-visita"></p>
+        <button id="cerrar-banner">Cerrar</button>
+    </div>
 
-    <form id="formProducto">
-        <div class="campo">
-            <label>Nombre del producto:</label>
-            <input type="text" id="nombre">
-            <small class="error" id="errorNombre"></small>
-        </div>
+    <h1>Visualizador de Productos</h1>
+    <p id="mensaje-carga">Cargando...</p>
 
-        <div class="campo">
-            <label>SKU:</label>
-            <input type="text" id="sku">
-            <small id="estadoSku" class="estado"></small>
-            <small class="error" id="errorSku"></small>
-        </div>
+    <div id="contenedor-filtros">
+        <label for="filtro-categorias">Filtrar por categoría:</label>
+        <select id="filtro-categorias">
+            <option value="Todas">Todas</option>
+        </select>
 
-        <div class="campo">
-            <label>Precio (€):</label>
-            <input type="number" id="precio" step="0.01">
-            <small class="error" id="errorPrecio"></small>
-        </div>
+        <button id="boton-ordenar-menor">Ordenar de Menor a Mayor Precio</button>
+        <button id="boton-ordenar-mayor">Ordenar de Mayor a Menor Precio</button>
+    </div>
 
-        <div class="campo">
-            <label>Stock:</label>
-            <input type="number" id="stock">
-            <small class="error" id="errorStock"></small>
-        </div>
+    <div id="contenedor-productos"></div>
 
-        <div class="campo">
-            <label>Categoría:</label>
-            <input type="text" id="categoria">
-            <small class="error" id="errorCategoria"></small>
-        </div>
+    <div id="carrito">
+        <h2>Carrito de la Compra</h2>
+        <div id="contenedor-carrito"></div>
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+    </div>
 
-        <button id="btnGuardar" disabled>Guardar</button>
-    </form>
-
-    <p id="mensajeExito" class="exito"></p>
+    <div>
+        <button id="tema-claro">Tema Claro</button>
+        <button id="tema-oscuro">Tema Oscuro</button>
+    </div>
 
     <script src="scripts/app.js"></script>
 </body>

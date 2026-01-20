@@ -4,11 +4,13 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Tema Claro */
 body.tema-claro {
     background-color: white;
     color: black;
 }
 
+/* Tema Oscuro */
 body.tema-oscuro {
     background-color: #333;
     color: white;
@@ -17,7 +19,7 @@ body.tema-oscuro {
 #contenedor-filtros {
     margin-bottom: 20px;
 }
-
+     
 #contenedor-productos {
     display: flex;
     flex-wrap: wrap;
@@ -29,4 +31,31 @@ body.tema-oscuro {
     padding: 15px;
     width: 220px;
     border-radius: 5px;
+}
+
+#carrito {
+    margin-top: 40px;
+    padding: 15px;
+    border: 1px solid whitesmoke;
+    background-color: #f5f5f5;
+}
+
+#carrito h2 {
+    margin-top: 0;
+}
+
+#contenedor-carrito {
+    margin-bottom: 15px;
+}
+
+#vaciar-carrito {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#vaciar-carrito:hover {
+    background-color: #c0392b;
 }

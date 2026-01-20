@@ -1,167 +1,227 @@
-let usuarios = [];
-let productos = [];
-let pedidos = [];
-let detallesPedidos = [];
+document.addEventListener("DOMContentLoaded", function() {
+    let listaProductos = [];
+    let productosMostrados = [];
 
-const estadoCarga = document.getElementById("estado-carga");
-const panel = document.getElementById("panel");
-const selectUsuarios = document.getElementById("selectUsuarios");
+    async function cargarProductos() {
+        const mensajeCarga = document.getElementById("mensaje-carga");
 
-const panelUsuario = document.getElementById("panelUsuario");
-const panelPedidos = document.getElementById("panelPedidos");
-const panelResumen = document.getElementById("panelResumen");
+        try {
+            mensajeCarga.textContent = "Cargando...";
+            const db = await abrirBaseDeDatos();
+            const productosEnBD = await obtenerProductosDeIndexedDB(db);
 
-async function cargarDatosIniciales() {
-    try {
-        const respuestas = await Promise.all([
-            fetch("./data/usuarios.json"),
-            fetch("./data/productos.json"),
-            fetch("./data/pedidos.json"),
-            fetch("./data/detalles_pedido.json")
-        ]);
+            if (productosEnBD.length > 0) {
+                listaProductos = productosEnBD;
+                productosMostrados = productosEnBD;
+                console.log("Productos cargados desde IndexedDB");
+            } else {
+                const respuesta = await fetch("../data/productos.json");
+                if (!respuesta.ok) {
+                    throw new Error("Respuesta de red no OK: " + respuesta.status);
+                }
 
-        usuarios = await respuestas[0].json();
-        productos = await respuestas[1].json();
-        pedidos = await respuestas[2].json();
-        detallesPedidos = await respuestas[3].json();
+                const datos = await respuesta.json();
+                listaProductos = datos.slice();
+                productosMostrados = datos.slice();
 
-        estadoCarga.style.display = "none";
-        panel.classList.remove("oculto");
+                await guardarProductosEnIndexedDB(db, listaProductos);
+                console.log("Productos cargados desde el servidor y guardados en IndexedDB");
+            }
 
-        inicializarDashboard();
-
-    } catch (error) {
-        estadoCarga.textContent = "Error cargando datos.";
-        console.error("Error:", error);
+            mensajeCarga.textContent = "";
+            cargarCategorias(listaProductos);
+            mostrarProductos(productosMostrados);
+            cargarCarrito();
+        } catch (error) {
+            mensajeCarga.textContent = "Error al cargar los productos.";
+            console.error("Error en cargarProductos:", error);
+        }
     }
-}
 
-function inicializarDashboard() {
-    usuarios.forEach(usuario => {
-        const option = document.createElement("option");
-        option.value = usuario.id;
-        option.textContent = usuario.nombre;
-        selectUsuarios.appendChild(option);
-    });
+    function mostrarProductos(productos) {
+        const contenedor = document.getElementById("contenedor-productos");
+        contenedor.innerHTML = "";
 
-    selectUsuarios.addEventListener("change", () => {
-        const usuarioId = parseInt(selectUsuarios.value);
-
-        if (!usuarioId) {
-            limpiarPaneles();
+        if (!productos || productos.length == 0) {
+            contenedor.innerHTML = "<p>No hay productos para mostrar.</p>";
             return;
         }
 
-        mostrarDashboardUsuario(usuarioId);
-    });
-}
+        productos.forEach(function(producto) {
+            const tarjeta = document.createElement("div");
+            tarjeta.className = "tarjeta-producto";
 
-function mostrarDashboardUsuario(usuarioId) {
+            tarjeta.innerHTML = `
+                <h3>${producto.nombre}</h3>
+                <p><strong>Precio:</strong> ${producto.precio} €</p>
+                <p><strong>Stock:</strong> ${producto.stock}</p>
+                <p><strong>Categoría:</strong> ${producto.categoria}</p>
+                <button class="añadir-carrito" data-id="${producto.id}">Añadir al carrito</button>
+            `;
 
-    const usuario = usuarios.find(usuario => usuario.id == usuarioId);
-
-    renderizarInfoUsuario(usuario);
-
-    const pedidosUsuario = pedidos.filter(pedido => pedido.usuarioId == usuarioId);
-
-    renderizarPedidosUsuario(pedidosUsuario);
-
-    const totalGasto = calcularTotalUsuario(pedidosUsuario);
-
-    renderizarResumen(totalGasto);
-}
-
-
-function buscarDetallesDePedido(pedidoId) {
-    return detallesPedidos.filter(detalle => detalle.pedidoId == pedidoId);
-}
-
-function calcularTotalPedido(listaDetalles) {
-    let total = 0;
-
-    listaDetalles.forEach(detalle => {
-        const producto = productos.find(producto => producto.id == detalle.productoId);
-        total += detalle.cantidad * producto.precio;
-    });
-
-    return total;
-}
-
-function calcularTotalUsuario(pedidosUsuario) {
-    return pedidosUsuario.reduce((acum, pedido) => {
-        const detalle = buscarDetallesDePedido(pedido.id);
-        return acum + calcularTotalPedido(detalle);
-    }, 0);
-}
-
-function renderizarInfoUsuario(usuario) {
-    panelUsuario.innerHTML = `
-        <div class="card">
-            <h2>Datos del Usuario</h2>
-            <p><strong>Nombre:</strong> ${usuario.nombre}</p>
-            <p><strong>Email:</strong> ${usuario.email}</p>
-            <p><strong>Registro:</strong> ${usuario.fechaRegistro}</p>
-        </div>
-    `;
-}
-
-function renderizarPedidosUsuario(listaPedidos) {
-
-    if (listaPedidos.length === 0) {
-        panelPedidos.innerHTML = `
-            <div class="card">
-                <h2>Pedidos del Usuario</h2>
-                <p>Este usuario no tiene pedidos registrados.</p>
-            </div>
-        `;
-        return;
-    }
-
-    let html = `
-        <div class="card">
-            <h2>Pedidos del Usuario</h2>
-    `;
-
-    listaPedidos.forEach(pedido => {
-
-        const detalles = buscarDetallesDePedido(pedido.id);
-        const totalPedido = calcularTotalPedido(detalles);
-
-        html += `
-            <div class="card">
-                <p><strong>Pedido:</strong> ${pedido.id}</p>
-                <p><strong>Fecha:</strong> ${pedido.fecha}</p>
-
-                <ul>
-        `;
-
-        detalles.forEach(det => {
-            const producto = productos.find(p => p.id === det.productoId);
-
-            html += ` <li>${producto.nombre} — ${det.cantidad} uds — ${(producto.precio * det.cantidad).toFixed(2)} €</li>`;
+            contenedor.appendChild(tarjeta);
         });
 
-        html += `</ul> <p><strong>Total del pedido:</strong> ${totalPedido.toFixed(2)} €</p> </div>`;
+        const botonesAñadir = document.querySelectorAll('.añadir-carrito');
+        botonesAñadir.forEach(boton => {
+            boton.addEventListener('click', function() {
+                const productoId = this.getAttribute('data-id');
+                añadirAlCarrito(productoId);
+            });
+        });
+    }
+
+    function cargarCategorias(productos) {
+        const selectCategorias = document.getElementById("filtro-categorias");
+
+        selectCategorias.innerHTML = "";
+
+        const opcionTodas = document.createElement("option");
+        opcionTodas.value = "Todas";
+        opcionTodas.textContent = "Todas";
+        selectCategorias.appendChild(opcionTodas);
+
+        const categoriasUnicas = [...new Set(productos.map(p => (p.categoria || "").trim()))];
+
+        categoriasUnicas.forEach(function(categoria) {
+            if (categoria == "") return;
+            const opcion = document.createElement("option");
+            opcion.value = categoria;
+            opcion.textContent = categoria;
+            selectCategorias.appendChild(opcion);
+        });
+    }
+
+    document.getElementById("filtro-categorias").addEventListener("change", function() {
+        const categoriaSeleccionada = this.value ? this.value.trim() : "Todas";
+
+        if (categoriaSeleccionada == "Todas" || categoriaSeleccionada == "") {
+            productosMostrados = listaProductos.slice();
+        } else {
+            productosMostrados = listaProductos.filter(function(producto) {
+                const categoriaProducto = (producto.categoria || "").trim();
+                return categoriaProducto == categoriaSeleccionada;
+            });
+        }
+
+        mostrarProductos(productosMostrados);
     });
 
-    html += `</div>`;
+    document.getElementById("boton-ordenar-menor").addEventListener("click", function() {
+        const productosOrdenados = productosMostrados.slice().sort(function(a, b) {
+            return a.precio - b.precio;
+        });
 
-    panelPedidos.innerHTML = html;
-}
+        productosMostrados = productosOrdenados.slice();
+        mostrarProductos(productosOrdenados);
+    });
 
-function renderizarResumen(total) {
-    panelResumen.innerHTML = `
-        <div class="card">
-            <h2>Resumen</h2>
-            <p><strong>Gasto total acumulado:</strong> ${total.toFixed(2)} €</p>
-        </div>
-    `;
-}
+    document.getElementById("boton-ordenar-mayor").addEventListener("click", function() {
+        const productosOrdenados = productosMostrados.slice().sort(function(a, b) {
+            return b.precio - a.precio;
+        });
 
-function limpiarPaneles() {
-    panelUsuario.innerHTML = "";
-    panelPedidos.innerHTML = "";
-    panelResumen.innerHTML = "";
-}
+        productosMostrados = productosOrdenados.slice();
+        mostrarProductos(productosOrdenados);
+    });
 
-cargarDatosIniciales();
+    function añadirAlCarrito(productoId) {
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+        const productoExistente = carrito.find(item => item.id === productoId);
+
+        if (productoExistente) {
+            productoExistente.cantidad++;
+        } else {
+            carrito.push({ id: productoId, cantidad: 1 });
+        }
+
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        cargarCarrito();
+    }
+
+    function cargarCarrito() {
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const contenedorCarrito = document.getElementById("contenedor-carrito");
+        contenedorCarrito.innerHTML = "";
+
+        if (carrito.length === 0) {
+            contenedorCarrito.innerHTML = "<p>Tu carrito está vacío.</p>";
+            return;
+        }
+
+        carrito.forEach(item => {
+            const producto = listaProductos.find(p => p.id == item.id);
+            const productoCarrito = document.createElement("div");
+            productoCarrito.className = "producto-carrito";
+            productoCarrito.innerHTML = `
+                <p>${producto.nombre} - ${item.cantidad} x ${producto.precio} €</p>
+            `;
+            contenedorCarrito.appendChild(productoCarrito);
+        });
+    }
+
+    document.getElementById("vaciar-carrito").addEventListener("click", function() {
+        localStorage.removeItem("carrito");
+        cargarCarrito();
+    });
+
+    async function abrirBaseDeDatos() {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open('tiendaDB', 1);
+
+            request.onupgradeneeded = function(event) {
+                const db = event.target.result;
+                if (!db.objectStoreNames.contains('productos')) {
+                    db.createObjectStore('productos', { keyPath: 'id' });
+                }
+            };
+
+            request.onsuccess = function(event) {
+                resolve(event.target.result);
+            };
+
+            request.onerror = function(event) {
+                reject('Error al abrir la base de datos');
+            };
+        });
+    }
+
+    async function obtenerProductosDeIndexedDB(db) {
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction(['productos'], 'readonly');
+            const store = transaction.objectStore('productos');
+            const request = store.getAll();
+
+            request.onsuccess = function() {
+                resolve(request.result);
+            };
+
+            request.onerror = function() {
+                reject('Error al obtener los productos');
+            };
+        });
+    }
+
+    async function guardarProductosEnIndexedDB(db, productos) {
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction(['productos'], 'readwrite');
+            const store = transaction.objectStore('productos');
+
+            productos.forEach(producto => {
+                store.put(producto);
+            });
+
+            transaction.oncomplete = function() {
+                resolve();
+            };
+
+            transaction.onerror = function() {
+                reject('Error al guardar los productos');
+            };
+        });
+    }
+
+    cargarProductos();
+});

@@ -105,4 +105,34 @@ document.getElementById("boton-ordenar-mayor").addEventListener("click", functio
     mostrarProductos(productosOrdenados);
 });
 
+function cambiarTema(tema) {
+    if (tema === 'claro') {
+        document.body.classList.add("tema-claro");
+        document.body.classList.remove("tema-oscuro");
+        sessionStorage.setItem("tema", "claro");
+    } else {
+        document.body.classList.add("tema-oscuro");
+        document.body.classList.remove("tema-claro");
+        sessionStorage.setItem("tema", "oscuro");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const temaGuardado = sessionStorage.getItem("tema");
+
+    if (temaGuardado === 'oscuro') {
+        cambiarTema('oscuro');
+    } else {
+        cambiarTema('claro');
+    }
+});
+
+document.getElementById("tema-claro").addEventListener("click", function() {
+    cambiarTema('claro');
+});
+
+document.getElementById("tema-oscuro").addEventListener("click", function() {
+    cambiarTema('oscuro');
+});
+
 cargarProductos();
