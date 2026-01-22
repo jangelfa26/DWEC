@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-top: 5px solid #2563eb;
+}
+
+.card h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #111827;
+}
+
+.card p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.fecha {
+    font-weight: bold;
+    color: #4b5563;
+    margin-bottom: 15px;
+}
+
+.contador {
+    background-color: #f1f5f9;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 15px;
+}
+
+.finalizado {
+    color: red;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+}
+
+.acciones input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+}
+
+.acciones button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.acciones button:hover {
+    background-color: #1e40af;
+}

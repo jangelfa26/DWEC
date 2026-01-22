@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Auditoría</title>
+    <link rel="stylesheet" href="styles/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard de Seguridad y Consumo</h1>
+        <p id="total-consumo" class="total">Consumo Total detectado: 0 MB</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID de Sesión</th>
+                    <th>Usuario</th>
+                    <th>Consumo (MB)</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="logs-table"></tbody>
+        </table>
+    </div>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
