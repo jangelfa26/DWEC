@@ -5,7 +5,7 @@ const view = require('./view');
 exports.list = (req, res) => {
   const albumes = model.getAll().map(a => ({
     ...a,
-    artista: artistaModel.getById(a.artistaId)?.nombre || 'Sin artista'  // Fallback si null
+    artista: artistaModel.getById(a.artistaId)?.nombre || 'Sin artista'
   }));
   res.send(view.list(albumes));
 };
