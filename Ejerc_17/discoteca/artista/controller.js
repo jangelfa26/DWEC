@@ -18,8 +18,8 @@ exports.detail = (req, res) => {
 // MISMA FUNCIÓN PARA NUEVO Y EDITAR
 exports.form = (req, res) => {
   const id = req.params.id;
-  const artista = id ? model.getById(id) : null; // null = nuevo artista
-  res.send(view.form(artista));                  // NUNCA llama a notFound aquí
+  const artista = id ? model.getById(id) : null;
+  res.send(view.form(artista));                  
 };
 
 exports.save = (req, res) => {
