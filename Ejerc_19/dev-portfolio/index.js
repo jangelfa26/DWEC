@@ -31,27 +31,28 @@ app.use("/portfolio", portfolioRoutes);
 app.get("/", async (req, res) => {
 
     let users = [];
+ try {
+    users = await getAllUsers();
+  } catch (error) {
+    console.error(error);
+    users = [];
+  }
+
+  let user = null;
+  const token = req.cookies.token;
+
+  if (token) {
     try {
-        users = await getAllUsers();    
-    } catch (error) {
-        console.error(error);
+      const payload = JSON.parse(
+        Buffer.from(token.split(".")[1], "base64").toString()
+      );
+      user = payload;
+    } catch {
+      user = null;
     }
-    
+  }
 
-    let user = null;
-
-const token = req.cookies.token;
-
-if (token) {
-    try {
-        const payload = JSON.parse(
-            Buffer.from(token.split(".")[1], "base64").toString()
-        );
-        user = payload;
-    } catch (err) {
-        user = null;
-    }
-}
+  const navbar = getNavbarHTML(req);
 
     const profileSection = user ? `
         <div class="section">
@@ -80,7 +81,6 @@ if (token) {
         </div>
     `;
 
-    const navbar = getNavbarHTML(req);
 
     res.send(`
     <!DOCTYPE html>
