@@ -30,7 +30,13 @@ app.use("/portfolio", portfolioRoutes);
 
 app.get("/", async (req, res) => {
 
-    const users = await getAllUsers();
+    let users = [];
+    try {
+        users = await getAllUsers();    
+    } catch (error) {
+        console.error(error);
+    }
+    
 
     let user = null;
 
