@@ -1,0 +1,23 @@
+{
+  "name": "api-biblioteca",
+  "version": "1.0.0",
+  "description": "Ejercicio de desarrollar una api para una biblioteca",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.2.0",
+    "morgan": "^1.10.1"
+  }
+}
