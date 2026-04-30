@@ -14,7 +14,6 @@ export async function conectarDB() {
   await client.connect();
 
   db = client.db('libreria');
-  console.log('Conectado a MongoDB');
-  console.log('URI:', process.env.MONGO_URI);
+
   return db;
 }
