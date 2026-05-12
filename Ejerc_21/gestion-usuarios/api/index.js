@@ -1,13 +1,12 @@
-import { GetObjectCommand } from '@aws-sdk/client-s3';
-
 import express from 'express';
 
 import cors from 'cors';
 
-import alumnosRoutes from './routes/rutasAlumnos.js';
+import alumnosRoutes from '../src/routes/rutasAlumnos.js';
 
-import s3 from './config/s3.js';
+import s3 from '../src/config/s3.js';
 
+import { GetObjectCommand } from '@aws-sdk/client-s3';
 
 const app = express();
 
@@ -18,7 +17,6 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.use('/api/alumnos', alumnosRoutes);
-
 
 app.get('/imagen/:key', async (req, res) => {
 
@@ -48,9 +46,4 @@ app.get('/imagen/:key', async (req, res) => {
     }
 });
 
-const PORT = 3000;
-
-app.listen(PORT, () => {
-
-    console.log(`Servidor iniciado en puerto ${PORT}`);
-});
+export default app;
