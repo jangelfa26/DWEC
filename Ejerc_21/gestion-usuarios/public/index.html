@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Registro de alumnos</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <h1>Registro de Alumnos</h1>
+
+    <form id="formulario">
+
+        <input type="text" name="nombre" placeholder="Nombre" required>
+
+        <input type="text" name="apellidos" placeholder="Apellidos" required>
+
+        <input type="text" name="localidad" placeholder="Localidad">
+
+        <input type="file" name="imagen" required>
+
+        <button type="submit">
+            Agregar Alumno
+        </button>
+
+    </form>
+<br>
+<hr>
+<br>
+<h2>Fichas de Alumnos</h2>
+    <div id="contenedor"></div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
